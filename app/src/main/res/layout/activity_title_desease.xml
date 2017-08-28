@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.feechan.imcare.activity.TitleDeseaseActivity">
+    <ImageView
+        android:id="@+id/penyakitImageView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@android:color/darker_gray"/>
+
+    <Button
+        android:id="@+id/detailInformasiButton"
+        style="@style/ButtonStyle2"
+        android:layout_marginTop="50dp"
+        android:text="@string/detail_informasi"/>
+    <Button
+        android:id="@+id/artikelButton"
+        style="@style/ButtonStyle2"
+        android:text="@string/artikel"/>
+    <Button
+        android:id="@+id/videoButton"
+        style="@style/ButtonStyle2"
+        android:text="@string/video"/>
+    <Button
+        android:id="@+id/infoRumahSakitButton"
+        style="@style/ButtonStyle2"
+        android:text="@string/info_rumah_sakit"/>
+</LinearLayout>

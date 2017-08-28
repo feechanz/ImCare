@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.feechan.imcare.activity.HospitalActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:src="@drawable/hospital"
+        android:layout_marginBottom="35dp"
+        android:scaleType="fitXY"/>
+
+    <Button
+        android:id="@+id/jakartaButton"
+        style="@style/ButtonStyle3"
+        android:text="@string/jakarta"/>
+    <Button
+        android:id="@+id/bogorButton"
+        style="@style/ButtonStyle3"
+        android:text="@string/bogor"/>
+    <Button
+        android:id="@+id/depokButton"
+        style="@style/ButtonStyle3"
+        android:text="@string/depok"/>
+    <Button
+        android:id="@+id/tangerangButton"
+        style="@style/ButtonStyle3"
+        android:text="@string/tangerang"/>
+    <Button
+        android:id="@+id/bekasiButton"
+        style="@style/ButtonStyle3"
+        android:text="@string/bekasi"/>
+</LinearLayout>

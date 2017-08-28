@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">I\'M CARE</string>
+
+    <string name="informasi_penyakit">Informasi Penyakit</string>
+    <string name="informasi_rumah_sakit">Informasi Rumah Sakit</string>
+    <string name="diagnosa">Diagnosa</string>
+
+    <string name="detail_informasi">Detail Informasi</string>
+    <string name="artikel">Artikel</string>
+    <string name="video">Video</string>
+    <string name="info_rumah_sakit">Info Rumah Sakit</string>
+    <string name="penyakit">Penyakit</string>
+
+    <string name="jakarta">Jakarta</string>
+    <string name="bogor">Bogor</string>
+    <string name="depok">Depok</string>
+    <string name="tangerang">Tangerang</string>
+    <string name="bekasi">Bekasi</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
