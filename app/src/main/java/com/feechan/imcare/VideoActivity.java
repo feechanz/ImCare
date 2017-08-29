@@ -25,7 +25,7 @@ public class VideoActivity extends AppCompatActivity {
         bufferVideo();
     }
 
-    String VideoURL = "http://192.168.43.22/ImCareProject/videos/wecantstop.mp4";
+    String VideoURL = "https://imcare.000webhostapp.com/videos/cancer.mp4";
 
     private void bufferVideo(){
 

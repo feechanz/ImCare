@@ -5,6 +5,6 @@ package com.feechan.imcare.global;
  */
 
 public class Config {
-    public static final String URL = "http://192.168.43.22/ImCareProject/api";
+    public static final String URL = "https://imcare.000webhostapp.com/api";
 
 }
