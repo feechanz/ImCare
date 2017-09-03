@@ -14,11 +14,12 @@ public class Penyakit implements Serializable {
     private String menular;
     private String kronis;
     private String image_url;
+    private String video_url;
 
     public Penyakit() {
     }
 
-    public Penyakit(int kdpenyakit, String nmpenyakit, String despenyakit, String fketurunan, String menular, String kronis, String image_url) {
+    public Penyakit(int kdpenyakit, String nmpenyakit, String despenyakit, String fketurunan, String menular, String kronis, String image_url, String video_url) {
         this.kdpenyakit = kdpenyakit;
         this.nmpenyakit = nmpenyakit;
         this.despenyakit = despenyakit;
@@ -26,6 +27,7 @@ public class Penyakit implements Serializable {
         this.menular = menular;
         this.kronis = kronis;
         this.image_url = image_url;
+        this.video_url = video_url;
     }
 
     public int getKdpenyakit() {
@@ -82,5 +84,13 @@ public class Penyakit implements Serializable {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
+    }
+
+    public String getVideo_url() {
+        return video_url;
+    }
+
+    public void setVideo_url(String video_url) {
+        this.video_url = video_url;
     }
 }

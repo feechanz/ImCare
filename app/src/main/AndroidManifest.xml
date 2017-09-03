@@ -23,9 +23,10 @@
         <activity android:name=".activity.TitleDeseaseActivity" />
         <activity android:name=".activity.HospitalActivity" />
         <activity
-            android:name=".VideoActivity"
-            android:theme="@style/AppThemeDialog"
-            />
+            android:name=".activity.VideoActivity"
+            android:theme="@style/AppThemeDialog" />
+        <activity android:name=".activity.ListArtikelActivity" />
+        <activity android:name=".activity.DetailDiseaseActivity"></activity>
     </application>
 
 </manifest>

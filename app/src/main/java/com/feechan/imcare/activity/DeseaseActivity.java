@@ -178,6 +178,10 @@ public class DeseaseActivity extends AppCompatActivity {
             Log.d("care","update imageurl "+before.getImage_url() +" to "+after.getImage_url());
             update = true;
         }
+        if(!before.getVideo_url().equals(after.getVideo_url())){
+            Log.d("care","update videourl "+before.getVideo_url() +" to "+after.getVideo_url());
+            update = true;
+        }
         if(update) {
             db.updatePenyakit(after);
         }

@@ -28,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_MENULAR         = "menular";
     private static final String KEY_KRONIS          = "kronis";
     private static final String KEY_IMAGE_URL       = "image_url";
+    private static final String KEY_VIDEO_URL       = "video_url";
 
 
     public DatabaseHelper(Context context)
@@ -43,7 +44,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 +KEY_FKETURUNAN + " TEXT,"
                 +KEY_MENULAR + " TEXT,"
                 +KEY_KRONIS + " TEXT,"
-                +KEY_IMAGE_URL + " TEXT" + ")";
+                +KEY_IMAGE_URL + " TEXT,"
+                +KEY_VIDEO_URL + " TEXT" + ")";
         db.execSQL(CREATE_PEOPLE_TABLE);
     }
 
@@ -66,6 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_MENULAR, penyakit.getMenular());
         values.put(KEY_KRONIS, penyakit.getKronis());
         values.put(KEY_IMAGE_URL, penyakit.getImage_url());
+        values.put(KEY_VIDEO_URL, penyakit.getVideo_url());
 
         db.insert(TABLE_PENYAKIT,null,values);
         db.close();
@@ -87,7 +90,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String menular = cursor.getString(4);
                 String kronis = cursor.getString(5);
                 String image_url = cursor.getString(6);
-                Penyakit p = new Penyakit(kdpenyakit,nmpenyakit,despenyakit,fketurunan,menular,kronis,image_url);
+                String video_url = cursor.getString(7);
+                Penyakit p = new Penyakit(kdpenyakit,nmpenyakit,despenyakit,fketurunan,menular,kronis,image_url,video_url);
                 penyakits.add(p);
             } while (cursor.moveToNext());
         }
@@ -108,7 +112,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String menular = cursor.getString(4);
                 String kronis = cursor.getString(5);
                 String image_url = cursor.getString(6);
-                p = new Penyakit(kdpenyakit,nmpenyakit,despenyakit,fketurunan,menular,kronis,image_url);
+                String video_url = cursor.getString(7);
+                p = new Penyakit(kdpenyakit,nmpenyakit,despenyakit,fketurunan,menular,kronis,image_url,video_url);
 
             } while (cursor.moveToNext());
         }
@@ -124,6 +129,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(KEY_MENULAR, newPenyakit.getMenular());
         cv.put(KEY_KRONIS, newPenyakit.getKronis());
         cv.put(KEY_IMAGE_URL, newPenyakit.getImage_url());
+        cv.put(KEY_VIDEO_URL, newPenyakit.getVideo_url());
         db.update(TABLE_PENYAKIT,cv,KEY_KDPENYAKIT + " = ?",new String[]{String.valueOf(newPenyakit.getKdpenyakit())});
     }
 

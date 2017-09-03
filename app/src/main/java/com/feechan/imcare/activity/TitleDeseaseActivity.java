@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.feechan.imcare.R;
-import com.feechan.imcare.VideoActivity;
 import com.feechan.imcare.entity.Penyakit;
 import com.feechan.imcare.global.AppHelper;
 
@@ -27,6 +26,7 @@ public class TitleDeseaseActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         penyakit = (Penyakit) getIntent().getSerializableExtra("penyakit");
+        Log.d("care","selected penyakit >> "+penyakit.getNmpenyakit());
 
         penyakitImageView = (ImageView) findViewById(R.id.penyakitImageView);
 
@@ -68,15 +68,20 @@ public class TitleDeseaseActivity extends AppCompatActivity {
     }
 
     private void detailInformasiClicked(){
-
+        Intent intent = new Intent(this, DetailDiseaseActivity.class);
+        intent.putExtra("kdpenyakit",penyakit.getKdpenyakit());
+        startActivity(intent);
     }
 
     private void artikelClicked(){
-
+        Intent intent = new Intent(this, ListArtikelActivity.class);
+        intent.putExtra("kdpenyakit",penyakit.getKdpenyakit());
+        startActivity(intent);
     }
 
     private void videoClicked(){
         Intent intent = new Intent(this, VideoActivity.class);
+        intent.putExtra("video_url",penyakit.getVideo_url());
         startActivity(intent);
     }
 

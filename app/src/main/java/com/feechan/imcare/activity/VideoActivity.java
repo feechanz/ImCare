@@ -1,4 +1,4 @@
-package com.feechan.imcare;
+package com.feechan.imcare.activity;
 
 import android.app.ProgressDialog;
 import android.media.MediaPlayer;
@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.Window;
 import android.widget.MediaController;
 import android.widget.VideoView;
+
+import com.feechan.imcare.R;
 
 public class VideoActivity extends AppCompatActivity {
 
@@ -57,13 +59,11 @@ public class VideoActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
-        penyakitVideoView.start();
         penyakitVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             // Close the progress bar and play the video
             public void onPrepared(MediaPlayer mp) {
                 pDialog.dismiss();
-
+                penyakitVideoView.start();
             }
         });
         penyakitVideoView.requestFocus();
