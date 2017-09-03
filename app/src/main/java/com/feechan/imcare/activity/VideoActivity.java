@@ -14,6 +14,7 @@ public class VideoActivity extends AppCompatActivity {
 
     ProgressDialog pDialog;
     VideoView penyakitVideoView;
+    String VideoURL = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,10 +23,13 @@ public class VideoActivity extends AppCompatActivity {
         penyakitVideoView = (VideoView) findViewById(R.id.penyakitVideoView);
         penyakitVideoView.setZOrderOnTop(true);
 
+
+        VideoURL =  getIntent().getExtras().getString("video_url","https://imcare.000webhostapp.com/videos/cancer.mp4");
+        Log.d("care","Video URL >>> "+VideoURL);
         bufferVideo();
     }
 
-    String VideoURL = "https://imcare.000webhostapp.com/videos/cancer.mp4";
+
 
     private void bufferVideo(){
 
@@ -54,11 +58,12 @@ public class VideoActivity extends AppCompatActivity {
         }
 
 
+        penyakitVideoView.start();
         penyakitVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             // Close the progress bar and play the video
             public void onPrepared(MediaPlayer mp) {
                 pDialog.dismiss();
-                penyakitVideoView.start();
+
             }
         });
         penyakitVideoView.requestFocus();
