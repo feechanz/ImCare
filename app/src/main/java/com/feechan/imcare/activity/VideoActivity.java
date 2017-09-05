@@ -5,14 +5,28 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.Window;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.feechan.imcare.R;
+import com.feechan.imcare.adapter.ArtikelListAdapter;
+import com.feechan.imcare.adapter.VideoListAdapter;
+import com.feechan.imcare.entity.Artikel;
+import com.feechan.imcare.entity.Video;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class VideoActivity extends AppCompatActivity {
+
+
+
 
     ProgressDialog pDialog;
     VideoView penyakitVideoView;

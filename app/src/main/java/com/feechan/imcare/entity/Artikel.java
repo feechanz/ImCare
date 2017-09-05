@@ -6,14 +6,14 @@ package com.feechan.imcare.entity;
 
 public class Artikel {
     private int noartikel;
+    private String judulartikel;
     private String contentartikel;
-    private String video;
     private int kdpenyakit;
 
-    public Artikel(int noartikel, String contentartikel, String video, int kdpenyakit) {
+    public Artikel(int noartikel, String judulartikel, String contentartikel, int kdpenyakit) {
         this.noartikel = noartikel;
+        this.judulartikel = judulartikel;
         this.contentartikel = contentartikel;
-        this.video = video;
         this.kdpenyakit = kdpenyakit;
     }
 
@@ -25,20 +25,20 @@ public class Artikel {
         this.noartikel = noartikel;
     }
 
+    public String getJudulartikel() {
+        return judulartikel;
+    }
+
+    public void setJudulartikel(String judulartikel) {
+        this.judulartikel = judulartikel;
+    }
+
     public String getContentartikel() {
         return contentartikel;
     }
 
     public void setContentartikel(String contentartikel) {
         this.contentartikel = contentartikel;
-    }
-
-    public String getVideo() {
-        return video;
-    }
-
-    public void setVideo(String video) {
-        this.video = video;
     }
 
     public int getKdpenyakit() {

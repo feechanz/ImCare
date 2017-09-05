@@ -80,7 +80,7 @@ public class TitleDeseaseActivity extends AppCompatActivity {
     }
 
     private void videoClicked(){
-        Intent intent = new Intent(this, VideoActivity.class);
+        Intent intent = new Intent(this, ListVideoActivity.class);
         intent.putExtra("video_url",penyakit.getVideo_url());
         startActivity(intent);
     }
