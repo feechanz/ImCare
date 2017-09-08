@@ -33,9 +33,9 @@ public class ListVideoActivity extends AppCompatActivity {
 
         videoRecyclerView = (RecyclerView) findViewById(R.id.videoRecyclerView);
         videos = new ArrayList<Video>();
-        videos.add(new Video(1,"Video Gejala","url artikel 1",1));
-        videos.add(new Video(2,"Video Penyakit","url artikel 1",1));
-        videos.add(new Video(4,"Video Penanganan","url artikel 1",1));
+        videos.add(new Video(1,"Video Gejala","https://imcare.000webhostapp.com/videos/cancer.mp4",1));
+        videos.add(new Video(2,"Video Penyakit","https://imcare.000webhostapp.com/videos/cancer.mp4",1));
+        videos.add(new Video(4,"Video Penanganan","https://imcare.000webhostapp.com/videos/cancer.mp4",1));
 
 
         mAdapter = new VideoListAdapter(videos,this);

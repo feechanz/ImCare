@@ -27,7 +27,7 @@ public class VideoActivity extends AppCompatActivity {
 
 
 
-
+    Video video;
     ProgressDialog pDialog;
     VideoView penyakitVideoView;
     String VideoURL = "";
@@ -40,7 +40,8 @@ public class VideoActivity extends AppCompatActivity {
         penyakitVideoView.setZOrderOnTop(true);
 
 
-        VideoURL =  getIntent().getExtras().getString("video_url","https://imcare.000webhostapp.com/videos/cancer.mp4");
+        video = (Video)getIntent().getSerializableExtra("video");
+        VideoURL = video.getContentvideo();
         Log.d("care","Video URL >>> "+VideoURL);
         bufferVideo();
     }

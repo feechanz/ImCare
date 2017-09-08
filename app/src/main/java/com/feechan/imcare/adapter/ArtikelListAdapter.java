@@ -48,7 +48,7 @@ public class ArtikelListAdapter extends RecyclerView.Adapter<ArtikelListAdapter.
                 public void onClick(View v) {
                     Log.d("care","item tapped! "+artikel.getJudulartikel());
                     Intent intent = new Intent(activity, ArtikelActivity.class);
-                    intent.putExtra("artikel", (Serializable) artikel);
+                    intent.putExtra("artikel",  artikel);
                     activity.startActivity(intent);
                 }
             });
