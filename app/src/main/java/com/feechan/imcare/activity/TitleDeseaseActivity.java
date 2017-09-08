@@ -75,13 +75,13 @@ public class TitleDeseaseActivity extends AppCompatActivity {
 
     private void artikelClicked(){
         Intent intent = new Intent(this, ListArtikelActivity.class);
-        intent.putExtra("kdpenyakit",penyakit.getKdpenyakit());
+        intent.putExtra("penyakit",penyakit);
         startActivity(intent);
     }
 
     private void videoClicked(){
         Intent intent = new Intent(this, ListVideoActivity.class);
-        intent.putExtra("video_url",penyakit.getVideo_url());
+        intent.putExtra("penyakit",penyakit);
         startActivity(intent);
     }
 

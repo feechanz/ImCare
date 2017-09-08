@@ -27,7 +27,8 @@
             android:theme="@style/AppThemeDialog" />
         <activity android:name=".activity.ListArtikelActivity" />
         <activity android:name=".activity.DetailDiseaseActivity" />
-        <activity android:name=".activity.ListVideoActivity"></activity>
+        <activity android:name=".activity.ListVideoActivity" />
+        <activity android:name=".activity.ArtikelActivity"></activity>
     </application>
 
 </manifest>

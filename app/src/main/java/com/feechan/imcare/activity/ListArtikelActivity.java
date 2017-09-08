@@ -29,21 +29,22 @@ public class ListArtikelActivity extends AppCompatActivity {
     RecyclerView artikelRecyclerView;
     ArtikelListAdapter mAdapter;
     List<Artikel> artikels;
+    Penyakit penyakit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_artikel);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        penyakit = (Penyakit) getIntent().getSerializableExtra("penyakit");
 
 //        db = new DatabaseHelper(this);
 
         artikelRecyclerView = (RecyclerView) findViewById(R.id.artikelRecyclerView);
         artikels = new ArrayList<Artikel>();
-        artikels.add(new Artikel(1,"Gejala Artikel","url artikel 1",1));
-        artikels.add(new Artikel(2,"Diagnosa Artikel","url artikel 1",1));
-        artikels.add(new Artikel(3,"Penyembuhan Artikel","url artikel 1",1));
-        artikels.add(new Artikel(4,"Obat Artikel","url artikel 1",1));
+        artikels.add(new Artikel(1,"Artikel Gejala","url artikel 1",1));
+        artikels.add(new Artikel(2,"Artikel Diagnosa","url artikel 1",1));
+        artikels.add(new Artikel(3,"Artikel Pengobatan","url artikel 1",1));
 
 
         mAdapter = new ArtikelListAdapter(artikels,this);

@@ -1,10 +1,12 @@
 package com.feechan.imcare.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by bcamaster on 05-Sep-17.
  */
 
-public class Video {
+public class Video implements Serializable{
     private int novideo;
     private String judulvideo;
     private String contentvideo;

@@ -1,10 +1,12 @@
 package com.feechan.imcare.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by Feechan on 9/4/2017.
  */
 
-public class Artikel {
+public class Artikel implements Serializable{
     private int noartikel;
     private String judulartikel;
     private String contentartikel;
