@@ -42,9 +42,9 @@ public class ListArtikelActivity extends AppCompatActivity {
 
         artikelRecyclerView = (RecyclerView) findViewById(R.id.artikelRecyclerView);
         artikels = new ArrayList<Artikel>();
-        artikels.add(new Artikel(1,"Artikel Gejala","url artikel 1",1));
-        artikels.add(new Artikel(2,"Artikel Diagnosa","url artikel 1",1));
-        artikels.add(new Artikel(3,"Artikel Pengobatan","url artikel 1",1));
+        artikels.add(new Artikel(1,"Artikel Gejala","http://www.alodokter.com/setidaknya-ada-15-gejala-kanker-yang-harus-diwaspadai",1));
+        artikels.add(new Artikel(2,"Artikel Diagnosa","http://www.alodokter.com/setidaknya-ada-15-gejala-kanker-yang-harus-diwaspadai",1));
+        artikels.add(new Artikel(3,"Artikel Pengobatan","http://www.alodokter.com/setidaknya-ada-15-gejala-kanker-yang-harus-diwaspadai",1));
 
 
         mAdapter = new ArtikelListAdapter(artikels,this);

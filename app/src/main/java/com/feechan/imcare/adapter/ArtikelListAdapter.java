@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.feechan.imcare.R;
+import com.feechan.imcare.activity.ArtikelActivity;
 import com.feechan.imcare.activity.TitleDeseaseActivity;
 import com.feechan.imcare.entity.Artikel;
 import com.feechan.imcare.entity.Penyakit;
@@ -46,9 +47,9 @@ public class ArtikelListAdapter extends RecyclerView.Adapter<ArtikelListAdapter.
                 @Override
                 public void onClick(View v) {
                     Log.d("care","item tapped! "+artikel.getJudulartikel());
-//                    Intent intent = new Intent(activity, TitleDeseaseActivity.class);
-//                    intent.putExtra("artikel", (Serializable) artikel);
-//                    activity.startActivity(intent);
+                    Intent intent = new Intent(activity, ArtikelActivity.class);
+                    intent.putExtra("artikel", (Serializable) artikel);
+                    activity.startActivity(intent);
                 }
             });
         }
