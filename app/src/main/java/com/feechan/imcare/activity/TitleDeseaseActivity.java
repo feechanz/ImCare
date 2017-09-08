@@ -69,7 +69,7 @@ public class TitleDeseaseActivity extends AppCompatActivity {
 
     private void detailInformasiClicked(){
         Intent intent = new Intent(this, DetailDiseaseActivity.class);
-        intent.putExtra("kdpenyakit",penyakit.getKdpenyakit());
+        intent.putExtra("penyakit",penyakit);
         startActivity(intent);
     }
 
