@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class PenyakitService
 {
-    public static String ENDPOINT = "/penyakit.php";
+    public static String ENDPOINT = "/api/penyakit.php";
 
     public static void getAllPenyakit(Context appContext, Response.Listener<String> onPostsLoaded, Response.ErrorListener onPostsError) {
         String url = Config.URL+ENDPOINT;

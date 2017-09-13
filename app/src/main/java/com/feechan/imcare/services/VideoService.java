@@ -19,32 +19,18 @@ import java.util.Map;
 
 public class VideoService
 {
-    public static String ENDPOINT = "/video.php";
+    public static String ENDPOINT = "/api/video.php";
 
-    public static void getAllVideo(Context appContext, Response.Listener<String> onPostsLoaded, Response.ErrorListener onPostsError) {
-        String url = Config.URL+ENDPOINT;
+    public static void getAllVideo(Context appContext, int kdpenyakit, Response.Listener<String> onPostsLoaded, Response.ErrorListener onPostsError) {
+        String url = Config.URL+ENDPOINT+"?kdpenyakit="+kdpenyakit;
         StringRequest request = new StringRequest(Request.Method.GET, url, onPostsLoaded, onPostsError);
         VolleyRequest Vrequest = VolleyRequest.getInstance(appContext);
         Vrequest.addToRequestQueue(request);
     }
 
     public static void getOneVideo(Context appContext, int id, Response.Listener<String> onPostsLoaded, Response.ErrorListener onPostsError) {
-        String url = Config.URL+ENDPOINT+"?id="+id;
+        String url = Config.URL+ENDPOINT+"?novideo="+id;
         StringRequest request = new StringRequest(Request.Method.GET, url, onPostsLoaded, onPostsError);
-        VolleyRequest Vrequest = VolleyRequest.getInstance(appContext);
-        Vrequest.addToRequestQueue(request);
-    }
-
-    public static void getTwitter(Context appContext, Response.Listener<String> onPostsLoaded, Response.ErrorListener onPostsError){
-        String url = "https://api.twitter.com/1.1/statuses/home_timeline.json";
-        StringRequest request = new StringRequest(Request.Method.GET, url, onPostsLoaded, onPostsError){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("Authorization", "OAuth oauth_consumer_key=\"CpGpyVgvXRh1PPvRuv4MuLXLH\",oauth_token=\"108941758-abtfHREHVsr24OUumdCdZkhgfuzzpdmLgFyP7wrU\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1503453498\",oauth_nonce=\"WzuW73\",oauth_version=\"1.0\",oauth_signature=\"9lHURn%2BvBMMvt1onQMqTOO8HV68%3D\"");
-                return params;
-            }
-        };
         VolleyRequest Vrequest = VolleyRequest.getInstance(appContext);
         Vrequest.addToRequestQueue(request);
     }

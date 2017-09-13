@@ -3,13 +3,12 @@ package com.feechan.imcare.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.feechan.imcare.R;
 import com.feechan.imcare.entity.Artikel;
-import com.feechan.imcare.entity.Penyakit;
+import com.feechan.imcare.global.Config;
 
 public class ArtikelActivity extends AppCompatActivity {
 
@@ -26,7 +25,7 @@ public class ArtikelActivity extends AppCompatActivity {
         WebView wv = (WebView) findViewById(R.id.webview);
         WebSettings webSettings = wv.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        wv.loadUrl(artikel.getContentartikel());
+        wv.loadUrl(Config.URL+"/view/viewartikel.php?noartikel="+artikel.getNoartikel());
     }
 
     @Override

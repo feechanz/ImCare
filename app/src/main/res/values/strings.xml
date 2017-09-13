@@ -17,7 +17,15 @@
     <string name="tangerang">Tangerang</string>
     <string name="bekasi">Bekasi</string>
 
+    <string name="nama_rumah_sakit">Nama Rumah Sakit : </string>
+    <string name="alamat">Alamat : </string>
+    <string name="no_telp">No Telp : </string>
+    <string name="lihat_pada_peta">Lihat Pada Peta </string>
+
+    <string name="temp">temp</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_detail_hospital_maps">Map</string>
 
 </resources>

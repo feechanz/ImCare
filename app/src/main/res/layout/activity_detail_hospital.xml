@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="20dp"
+    tools:context="com.feechan.imcare.activity.DetailHospitalActivity">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/nameTextView"
+        style="@style/TextViewStyle1"
+        android:text="@string/temp"/>
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/alamatTextView"
+        style="@style/TextViewStyle1"
+        android:text="@string/temp"/>
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/kotaTextView"
+        style="@style/TextViewStyle1"
+        android:text="@string/temp"/>
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/teleponTextView"
+        style="@style/TextViewStyle1"
+        android:text="@string/temp"/>
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/faxTextView"
+        style="@style/TextViewStyle1"
+        android:text="@string/temp"/>
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/webTextView"
+        style="@style/TextViewStyle1"
+        android:text="@string/temp"/>
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/humasTextView"
+        style="@style/TextViewStyle1"
+        android:text="@string/temp"/>
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/mapsButton"
+        style="@style/ButtonStyle1"
+        android:text="@string/lihat_pada_peta"/>
+</LinearLayout>

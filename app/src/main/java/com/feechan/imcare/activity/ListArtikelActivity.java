@@ -12,20 +12,21 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.feechan.imcare.R;
 import com.feechan.imcare.adapter.ArtikelListAdapter;
-import com.feechan.imcare.adapter.PenyakitListAdapter;
 import com.feechan.imcare.entity.Artikel;
 import com.feechan.imcare.entity.Penyakit;
 import com.feechan.imcare.global.AppHelper;
 import com.feechan.imcare.global.DatabaseHelper;
-import com.feechan.imcare.services.PenyakitService;
+import com.feechan.imcare.services.ArtikelService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListArtikelActivity extends AppCompatActivity {
 
+    DatabaseHelper db;
     RecyclerView artikelRecyclerView;
     ArtikelListAdapter mAdapter;
     List<Artikel> artikels;
@@ -38,14 +39,10 @@ public class ListArtikelActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         penyakit = (Penyakit) getIntent().getSerializableExtra("penyakit");
 
-//        db = new DatabaseHelper(this);
+        db = new DatabaseHelper(this);
 
         artikelRecyclerView = (RecyclerView) findViewById(R.id.artikelRecyclerView);
         artikels = new ArrayList<Artikel>();
-        artikels.add(new Artikel(1,"Artikel Gejala","http://www.alodokter.com/setidaknya-ada-15-gejala-kanker-yang-harus-diwaspadai",1));
-        artikels.add(new Artikel(2,"Artikel Diagnosa","http://www.alodokter.com/setidaknya-ada-15-gejala-kanker-yang-harus-diwaspadai",1));
-        artikels.add(new Artikel(3,"Artikel Pengobatan","http://www.alodokter.com/setidaknya-ada-15-gejala-kanker-yang-harus-diwaspadai",1));
-
 
         mAdapter = new ArtikelListAdapter(artikels,this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -53,10 +50,127 @@ public class ListArtikelActivity extends AppCompatActivity {
         artikelRecyclerView.setItemAnimator(new DefaultItemAnimator());
         artikelRecyclerView.setAdapter(mAdapter);
 
+        requestArtikel();
+
+        //load from SQLite
+        loadFromDB();
     }
 
+    private void requestArtikel(){
+        if(penyakit != null) {
+            final Response.ErrorListener onPostsError = new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    if (error.networkResponse != null) {
+                        Log.e("care", "Error >>> " + error.networkResponse.statusCode + "");
+                    } else {
+                        Log.e("care", "Error >>> " + error);
+                    }
 
+                }
+            };
+            final Response.Listener<String> onPostsLoaded = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.i("care", "response >> "+ response);
+                    //ubah response ke list artikel
+                    synchronizedArtikel(response);
+                }
+            };
 
+            ArtikelService.getAllArtikel(this, penyakit.getKdpenyakit(), onPostsLoaded, onPostsError);
+        }
+    }
+
+    private void synchronizedArtikel(String response){
+        Gson gson = AppHelper.getGson();
+        List<Artikel> tmpArtikels = null;
+        boolean error = false;
+        try {
+            //parsing json to list video
+            tmpArtikels = gson.fromJson(response, new TypeToken<List<Artikel>>() {
+            }.getType());
+        }
+        catch (Exception e){
+            //set error, dont continue syncronize
+            error = true;
+            Log.d("care","error happen "+e.getMessage());
+        }
+        if(!error) {
+            //check if any update
+            boolean update = false;
+
+            //syncronize list
+            //check removed item or update item
+            for(Artikel item : db.getAllArtikel(penyakit.getKdpenyakit())){
+
+                Artikel search = null;
+                //search in response
+                for(Artikel itemResponse : tmpArtikels){
+                    if(item.getNoartikel() == itemResponse.getNoartikel()){
+                        search = itemResponse;
+                        break;
+                    }
+                }
+
+                if(search == null){
+                    //not found
+                    //delete item
+                    db.removeArtikel(item.getNoartikel());
+                    update = true;
+                } else {
+                    //update item
+                    this.updateArtikel(item,search);
+                    update = true;
+                }
+            }
+
+            //check new item
+            for(Artikel item : tmpArtikels){
+                Artikel search = db.getArtikel(item.getNoartikel());
+                if(search == null){
+                    //not found
+                    //add new item
+                    db.addArtikel(item);
+                    update = true;
+                }
+            }
+            if(update) {
+                loadFromDB();
+            }
+        }
+    }
+
+    private void updateArtikel(Artikel before, Artikel after){
+        boolean update = false;
+        if(!before.getJudulartikel().equals(after.getJudulartikel())){
+            Log.d("care","update judulartikel "+before.getJudulartikel() +" to "+after.getJudulartikel());
+            update = true;
+        }
+        if(!before.getContentartikel().equals(after.getContentartikel())){
+            Log.d("care","update contentartikel "+before.getContentartikel() +" to "+after.getContentartikel());
+            update = true;
+        }
+        if(before.getKdpenyakit() != after.getKdpenyakit()){
+            Log.d("care","update kdpenyakit "+before.getKdpenyakit() +" to "+after.getKdpenyakit());
+            update = true;
+        }
+
+        if(update) {
+            db.updateArtikel(after);
+        }
+    }
+
+    private void loadFromDB(){
+        if(penyakit != null) {
+            List<Artikel> tmp = db.getAllArtikel(penyakit.getKdpenyakit());
+            artikels.clear();
+            for (Artikel item : tmp) {
+                artikels.add(item);
+            }
+            mAdapter.notifyDataSetChanged();
+        }
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -9,13 +9,13 @@ import java.io.Serializable;
 public class Video implements Serializable{
     private int novideo;
     private String judulvideo;
-    private String contentvideo;
+    private String urlvideo;
     private int kdpenyakit;
 
-    public Video(int novideo, String judulvideo, String contentvideo, int kdpenyakit) {
+    public Video(int novideo, String judulvideo, String urlvideo, int kdpenyakit) {
         this.novideo = novideo;
         this.judulvideo = judulvideo;
-        this.contentvideo = contentvideo;
+        this.urlvideo = urlvideo;
         this.kdpenyakit = kdpenyakit;
     }
 
@@ -35,12 +35,12 @@ public class Video implements Serializable{
         this.judulvideo = judulvideo;
     }
 
-    public String getContentvideo() {
-        return contentvideo;
+    public String getUrlvideo() {
+        return urlvideo;
     }
 
-    public void setContentvideo(String contentvideo) {
-        this.contentvideo = contentvideo;
+    public void setUrlvideo(String urlvideo) {
+        this.urlvideo = urlvideo;
     }
 
     public int getKdpenyakit() {

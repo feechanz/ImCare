@@ -1,8 +1,5 @@
 package com.feechan.imcare.activity;
 
-
-import android.app.ProgressDialog;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -10,8 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -21,12 +16,10 @@ import com.feechan.imcare.entity.Penyakit;
 import com.feechan.imcare.global.AppHelper;
 import com.feechan.imcare.global.DatabaseHelper;
 import com.feechan.imcare.services.PenyakitService;
-import com.feechan.imcare.utils.IAuthStatus;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class DeseaseActivity extends AppCompatActivity {
