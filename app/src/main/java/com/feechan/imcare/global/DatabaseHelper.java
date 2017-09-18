@@ -270,7 +270,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Artikel getArtikel(int noartikel){
-
         String query = "SELECT * FROM "+TABLE_ARTIKEL + " WHERE noartikel = " + noartikel;
         Artikel a = null;
         SQLiteDatabase db = this.getWritableDatabase();
