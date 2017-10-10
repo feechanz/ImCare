@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.diagnosaButton:
                 Log.d("care","diagnosa button klik");
+                Intent i3 = new Intent(this, DiagnoseActivity.class);
+                startActivity(i3);
                 break;
             default:
                 Log.e("care","there's not found button");

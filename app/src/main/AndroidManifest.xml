@@ -55,9 +55,8 @@
 
         <activity
             android:name=".activity.DetailHospitalMapsActivity"
-            android:label="@string/title_activity_detail_hospital_maps"></activity>
-
-
+            android:label="@string/title_activity_detail_hospital_maps" />
+        <activity android:name=".activity.DiagnoseActivity"></activity>
     </application>
 
 </manifest>
