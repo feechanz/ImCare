@@ -147,32 +147,36 @@ public class DeseaseActivity extends AppCompatActivity {
 
     private void updatePenyakit(Penyakit before, Penyakit after){
         boolean update = false;
-        if(!before.getNmpenyakit().equals(after.getNmpenyakit())){
-            Log.d("care","update nmpenyakit "+before.getNmpenyakit() +" to "+after.getNmpenyakit());
-            update = true;
-        }
-        if(!before.getDespenyakit().equals(after.getDespenyakit())){
-            Log.d("care","update despenyakit "+before.getDespenyakit() +" to "+after.getDespenyakit());
-            update = true;
-        }
-        if(!before.getFketurunan().equals(after.getFketurunan())){
-            Log.d("care","update fketurunan "+before.getDespenyakit() +" to "+after.getDespenyakit());
-            update = true;
-        }
-        if(!before.getMenular().equals(after.getMenular())){
-            Log.d("care","update menular "+before.getMenular() +" to "+after.getMenular());
-            update = true;
-        }
-        if(!before.getKronis().equals(after.getKronis())){
-            Log.d("care","update kronis "+before.getKronis() +" to "+after.getKronis());
-            update = true;
-        }
-        if(!before.getImage_url().equals(after.getImage_url())){
-            Log.d("care","update imageurl "+before.getImage_url() +" to "+after.getImage_url());
-            update = true;
-        }
-        if(!before.getVideo_url().equals(after.getVideo_url())){
-            Log.d("care","update videourl "+before.getVideo_url() +" to "+after.getVideo_url());
+        try {
+            if (!before.getNmpenyakit().equals(after.getNmpenyakit())) {
+                Log.d("care", "update nmpenyakit " + before.getNmpenyakit() + " to " + after.getNmpenyakit());
+                update = true;
+            }
+            if (!before.getDespenyakit().equals(after.getDespenyakit())) {
+                Log.d("care", "update despenyakit " + before.getDespenyakit() + " to " + after.getDespenyakit());
+                update = true;
+            }
+            if (!before.getFketurunan().equals(after.getFketurunan())) {
+                Log.d("care", "update fketurunan " + before.getDespenyakit() + " to " + after.getDespenyakit());
+                update = true;
+            }
+            if (!before.getMenular().equals(after.getMenular())) {
+                Log.d("care", "update menular " + before.getMenular() + " to " + after.getMenular());
+                update = true;
+            }
+            if (!before.getKronis().equals(after.getKronis())) {
+                Log.d("care", "update kronis " + before.getKronis() + " to " + after.getKronis());
+                update = true;
+            }
+            if (!before.getImage_url().equals(after.getImage_url())) {
+                Log.d("care", "update imageurl " + before.getImage_url() + " to " + after.getImage_url());
+                update = true;
+            }
+            if (!before.getVideo_url().equals(after.getVideo_url())) {
+                Log.d("care", "update videourl " + before.getVideo_url() + " to " + after.getVideo_url());
+                update = true;
+            }
+        }catch(Exception ex){
             update = true;
         }
         if(update) {
