@@ -21,4 +21,11 @@ public class RsService {
         VolleyRequest Vrequest = VolleyRequest.getInstance(appContext);
         Vrequest.addToRequestQueue(request);
     }
+
+    public static void getAllRsPenyakit(Context appContext, int kdpenyakit ,Response.Listener<String> onPostsLoaded, Response.ErrorListener onPostsError) {
+        String url = Config.URL+ENDPOINT+"?kdpenyakit="+kdpenyakit;
+        StringRequest request = new StringRequest(Request.Method.GET, url, onPostsLoaded, onPostsError);
+        VolleyRequest Vrequest = VolleyRequest.getInstance(appContext);
+        Vrequest.addToRequestQueue(request);
+    }
 }

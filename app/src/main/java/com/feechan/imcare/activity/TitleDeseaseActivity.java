@@ -86,7 +86,9 @@ public class TitleDeseaseActivity extends AppCompatActivity {
     }
 
     private void infoRumahSakitClicked(){
-
+        Intent intent = new Intent(this, ListHospitalDiseaseActivity.class);
+        intent.putExtra("kdpenyakit",penyakit.getKdpenyakit());
+        startActivity(intent);
     }
 
     @Override
