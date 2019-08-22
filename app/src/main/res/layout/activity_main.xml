@@ -29,6 +29,17 @@
         style="@style/ButtonStyle1"
         android:text="@string/diagnosa"/>
 
+    <Button
+        android:id="@+id/trainButton"
+        style="@style/ButtonStyle1"
+        android:visibility="gone"
+        android:text="@string/train"/>
+
+    <Button
+        android:id="@+id/predictButton"
+        style="@style/ButtonStyle1"
+        android:text="@string/predict"/>
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

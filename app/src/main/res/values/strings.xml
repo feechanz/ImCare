@@ -4,6 +4,8 @@
     <string name="informasi_penyakit">Informasi Penyakit</string>
     <string name="informasi_rumah_sakit">Informasi Rumah Sakit</string>
     <string name="diagnosa">Diagnosa</string>
+    <string name="train">Train</string>
+    <string name="predict">Predict</string>
 
     <string name="detail_informasi">Detail Informasi</string>
     <string name="artikel">Artikel</string>
@@ -27,5 +29,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_detail_hospital_maps">Map</string>
+
+    <string name="rest_api_url_hint">API URL</string>
+    <string name="raw_json">RAW JSON</string>
+    <string name="send">SEND</string>
+    <string name="clear">CLEAR</string>
+    <string name="ok">OK</string>
+    <string name="input_raw_json">Input Raw JSON</string>
+    <string name="model_json">MODEL JSON</string>
+    <string name="error_conenction">Error Connection or JSON incorrect</string>
 
 </resources>
