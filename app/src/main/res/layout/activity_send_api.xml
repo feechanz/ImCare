@@ -6,72 +6,90 @@
     android:orientation="vertical"
     android:paddingTop="20dp"
     tools:context=".activity.SendApiActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/rest_api_url_hint" />
 
     <EditText
         android:id="@+id/urlEditText"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:background="@drawable/rect_border"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:hint="@string/rest_api_url_hint" />
+        android:background="@drawable/rect_border"
+        android:hint="@string/rest_api_url_hint"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp" />
 
-    <LinearLayout
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/modelButton"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginEnd="10dp"
-            android:textSize="12sp"
-            android:background="@drawable/button1"
-            android:text="@string/model_json"
-            android:visibility="gone"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="5dp">
 
-        <Button
-            android:id="@+id/jsonButton"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:textSize="12sp"
-            android:background="@drawable/button1"
-            android:text="@string/raw_json"
-            android:visibility="gone"/>
-        <Button
-            android:id="@+id/clearButton"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:textSize="12sp"
-            android:background="@drawable/button1"
-            android:text="@string/clear"/>
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:textSize="12sp"
-            android:background="@drawable/button1"
-            android:text="@string/send"/>
-    </LinearLayout>
+            <Button
+                android:id="@+id/clearButton"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/button1"
+                android:text="@string/clear"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/modelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/button1"
+                android:text="@string/model_json"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/rawButton"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/button1"
+                android:text="@string/raw_json"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/sendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:background="@drawable/button1"
+                android:text="@string/send"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:id="@+id/modelScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:isScrollContainer="true">
+
+        <LinearLayout
+            android:id="@+id/modelLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </ScrollView>
 
     <ScrollView
         android:id="@+id/rawScrollView"
@@ -85,26 +103,33 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/input_raw_json" />
-
             <EditText
                 android:id="@+id/rawEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/rect_border"
-                android:padding="10dp"
-                android:gravity="top"
-                android:inputType="textMultiLine"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rect_border"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/input_raw_json" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/rest_api_url_hint" />
 </LinearLayout>
