@@ -6,6 +6,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.feechan.imcare.R;
+import com.feechan.imcare.global.Config;
 
 public class DiagnoseActivity extends AppCompatActivity {
 
@@ -16,6 +17,6 @@ public class DiagnoseActivity extends AppCompatActivity {
         WebView wv = (WebView) findViewById(R.id.webviewDiagnose);
         WebSettings webSettings = wv.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        wv.loadUrl("https://imcare.000webhostapp.com/view/pertanyaandiagnosa.php");
+        wv.loadUrl(Config.URL+"view/pertanyaandiagnosa.php");
     }
 }

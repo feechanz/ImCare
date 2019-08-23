@@ -1,5 +1,6 @@
 package com.feechan.imcare.activity;
 
+import android.app.ProgressDialog;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -72,9 +73,13 @@ public class SendApiActivity extends AppCompatActivity {
     }
 
     private void sendAction(){
+        final ProgressDialog dialog = ProgressDialog.show(this, "",
+                "Loading. Please wait...", true);
+        dialog.show();
         ApiService.postResponse(this, urlEditText.getText().toString(), rawEditText.getText().toString(), new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
+                dialog.dismiss();
                 DialogUtils.showErrorMessageDialog(SendApiActivity.this, response.toString());
             }
         }, new Response.ErrorListener() {
@@ -82,6 +87,7 @@ public class SendApiActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("chanz","error : "+ error);
+                dialog.dismiss();
                 if (error == null || error.networkResponse == null) {
                     return;
                 }
